@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Aseprite    | Copyright (C) 2001-2016  David Capello -->
+<!-- LibreSprite | Copyright (C) 2021       LibreSprite contributors -->
 <skin name="Default"
       author="Ilija Melentijevic &amp; David Capello"
       url="http://ilkke.blogspot.com/">
@@ -394,7 +396,6 @@
     <part id="icon_white"                       x="64" y="256" w="16" h="16" />
     <part id="icon_transparent"                 x="80" y="256" w="16" h="16" />
     <part id="color_wheel_indicator"            x="48" y="192" w="4" h="4" />
-    <part id="no_symmetry"                      x="144" y="240" w="13" h="13" />
     <part id="horizontal_symmetry"              x="160" y="240" w="13" h="13" />
     <part id="vertical_symmetry"                x="176" y="240" w="13" h="13" />
     <part id="icon_arrow_down"                  x="144" y="256" w="7" h="4" />
@@ -846,24 +847,6 @@
     <!-- recent_file_detail -->
     <style id="recent_file_detail" base="recent_file">
       <text color="disabled" valign="top" />
-    </style>
-
-    <!-- news_item -->
-    <style id="news_item">
-      <background color="background" />
-      <text color="text" valign="middle" padding-left="2" padding-right="2" padding-top="3" padding-bottom="3" />
-    </style>
-    <style id="news_item:hover">
-      <background color="menuitem_hot_face" />
-    </style>
-    <style id="news_item:active">
-      <background color="listitem_selected_face" />
-      <text color="listitem_selected_text" />
-    </style>
-
-    <!-- news_item_detail -->
-    <style id="news_item_detail" base="news_item">
-      <text color="disabled" valign="top" wordwrap="true" padding-top="0" padding-bottom="0" />
     </style>
 
   </stylesheet>

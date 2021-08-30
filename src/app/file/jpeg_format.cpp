@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2015  David Capello
+// Aseprite    | Copyright (C) 2001-2015  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -54,9 +54,7 @@ class JpegFormat : public FileFormat {
   }
 
   bool onLoad(FileOp* fop) override;
-#ifdef ENABLE_SAVE
   bool onSave(FileOp* fop) override;
-#endif
 
   base::SharedPtr<FormatOptions> onGetFormatOptions(FileOp* fop) override;
 };
@@ -229,7 +227,6 @@ bool JpegFormat::onLoad(FileOp* fop)
   return true;
 }
 
-#ifdef ENABLE_SAVE
 bool JpegFormat::onSave(FileOp* fop)
 {
   struct jpeg_compress_struct cinfo;
@@ -346,7 +343,6 @@ bool JpegFormat::onSave(FileOp* fop)
   // All fine.
   return true;
 }
-#endif
 
 // Shows the JPEG configuration dialog.
 base::SharedPtr<FormatOptions> JpegFormat::onGetFormatOptions(FileOp* fop)

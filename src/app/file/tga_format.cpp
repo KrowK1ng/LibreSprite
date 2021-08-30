@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2015  David Capello
+// Aseprite    | Copyright (C) 2001-2015  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -38,9 +38,7 @@ class TgaFormat : public FileFormat {
   }
 
   bool onLoad(FileOp* fop) override;
-#ifdef ENABLE_SAVE
   bool onSave(FileOp* fop) override;
-#endif
 };
 
 FileFormat* CreateTgaFormat()
@@ -377,7 +375,6 @@ bool TgaFormat::onLoad(FileOp* fop)
   }
 }
 
-#ifdef ENABLE_SAVE
 // Writes a bitmap into a TGA file, using the specified palette (this
 // should be an array of at least 256 RGB structures).
 bool TgaFormat::onSave(FileOp* fop)
@@ -462,6 +459,5 @@ bool TgaFormat::onSave(FileOp* fop)
     return true;
   }
 }
-#endif
 
 } // namespace app

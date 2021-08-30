@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2015  David Capello
+// Aseprite    | Copyright (C) 2001-2015  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -38,9 +38,7 @@ class FliFormat : public FileFormat {
   }
 
   bool onLoad(FileOp* fop) override;
-#ifdef ENABLE_SAVE
   bool onSave(FileOp* fop) override;
-#endif
 };
 
 FileFormat* CreateFliFormat()
@@ -154,8 +152,6 @@ bool FliFormat::onLoad(FileOp* fop)
   return true;
 }
 
-#ifdef ENABLE_SAVE
-
 static int get_time_precision(const Sprite *sprite)
 {
   // Check if all frames have the same duration
@@ -238,7 +234,5 @@ bool FliFormat::onSave(FileOp* fop)
 
   return true;
 }
-
-#endif  // ENABLE_SAVE
 
 } // namespace app

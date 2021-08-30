@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2016  David Capello
+// Aseprite    | Copyright (C) 2001-2016  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -26,7 +26,7 @@
 #include "app/tools/freehand_algorithm.h"
 #include "app/tools/ink.h"
 #include "app/tools/point_shape.h"
-#include "app/tools/symmetries.h"
+#include "app/tools/symmetry.h"
 #include "app/tools/tool.h"
 #include "app/tools/tool_box.h"
 #include "app/tools/tool_loop.h"
@@ -163,6 +163,10 @@ public:
 
         case app::gen::SymmetryMode::VERTICAL:
           m_symmetry.reset(new app::tools::VerticalSymmetry(m_docPref.symmetry.yAxis()));
+          break;
+
+        case app::gen::SymmetryMode::BOTH:
+          m_symmetry.reset(new app::tools::DoubleSymmetry(m_docPref.symmetry.xAxis(), m_docPref.symmetry.yAxis()));
           break;
       }
     }

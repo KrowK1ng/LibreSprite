@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2016  David Capello
+// Aseprite    | Copyright (C) 2001-2016  David Capello
+// LibreSprite | Copyright (C) 2018-2021  LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -26,16 +26,10 @@
 #define PACKAGE "LibreSprite"
 #define VERSION "1.0-dev"
 
-#ifdef CUSTOM_WEBSITE_URL
-#define WEBSITE                 CUSTOM_WEBSITE_URL // To test web server
-#else
 #define WEBSITE                 "https://github.com/LibreSprite/LibreSprite/"
-#endif
 #define WEBSITE_DOWNLOAD        WEBSITE "releases/"
 #define WEBSITE_CONTRIBUTORS    WEBSITE "graphs/contributors/"
-#define WEBSITE_NEWS_RSS        ""
-#define UPDATE_URL              ""
-#define COPYRIGHT               "Copyright (C) 2001-2016 David Capello, 2016-2018 LibreSprite contributors"
+#define COPYRIGHT               "Copyright (C) 2001-2016 David Capello, 2016-2021 LibreSprite contributors"
 
 #include "base/base.h"
 #include "base/debug.h"

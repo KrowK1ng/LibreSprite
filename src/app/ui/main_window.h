@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2015  David Capello
+// Aseprite    | Copyright (C) 2001-2015  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -19,10 +19,6 @@ namespace ui {
 }
 
 namespace app {
-
-#ifdef ENABLE_UPDATER
-  class CheckUpdateDelegate;
-#endif
 
   class ColorBar;
   class ContextBar;
@@ -60,9 +56,6 @@ namespace app {
     Timeline* getTimeline() { return m_timeline; }
     Workspace* getWorkspace() { return m_workspace; }
     PreviewEditorWindow* getPreviewEditor() { return m_previewEditor; }
-#ifdef ENABLE_UPDATER
-    CheckUpdateDelegate* getCheckUpdateDelegate();
-#endif
 
     void start();
     void reloadMenus();

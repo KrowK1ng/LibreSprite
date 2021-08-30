@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2015  David Capello
+// Aseprite    | Copyright (C) 2001-2015  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -40,13 +40,11 @@ bool FileFormat::load(FileOp* fop)
   return onLoad(fop);
 }
 
-#ifdef ENABLE_SAVE
 bool FileFormat::save(FileOp* fop)
 {
   ASSERT(support(FILE_SUPPORT_SAVE));
   return onSave(fop);
 }
-#endif
 
 bool FileFormat::postLoad(FileOp* fop)
 {

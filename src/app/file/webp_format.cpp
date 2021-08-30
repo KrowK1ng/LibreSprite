@@ -1,6 +1,5 @@
-// Aseprite
-// Copyright (C) 2015 Gabriel Rauter
-// Copyright (C) 2015 David Capello
+// Aseprite    | Copyright (C) 2015  Gabriel Rauter, David Capello
+// LibreSprite | Copyright (C) 2021  LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -53,9 +52,7 @@ class WebPFormat : public FileFormat {
   }
 
   bool onLoad(FileOp* fop) override;
-#ifdef ENABLE_SAVE
   bool onSave(FileOp* fop) override;
-#endif
 
 base::SharedPtr<FormatOptions> onGetFormatOptions(FileOp* fop) override;
 };
@@ -164,8 +161,6 @@ bool WebPFormat::onLoad(FileOp* fop)
   WebPFreeDecBuffer(&config.output);
   return true;
 }
-
-#ifdef ENABLE_SAVE
 
 struct WriterData {
   FILE* fp;
@@ -312,8 +307,6 @@ bool WebPFormat::onSave(FileOp* fop)
 
   return true;
 }
-
-#endif  // ENABLE_SAVE
 
 // Shows the WebP configuration dialog.
 base::SharedPtr<FormatOptions> WebPFormat::onGetFormatOptions(FileOp* fop)

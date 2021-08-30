@@ -63,16 +63,13 @@ endif()
 ######################################################################
 # app-lib target
 
-set(data_recovery_files)
-if(NOT ENABLE_TRIAL_MODE)
-  set(data_recovery_files
-    crash/backup_observer.cpp
-    crash/data_recovery.cpp
-    crash/read_document.cpp
-    crash/session.cpp
-    crash/write_document.cpp
-    ui/data_recovery_view.cpp)
-endif()
+set(data_recovery_files
+  crash/backup_observer.cpp
+  crash/data_recovery.cpp
+  crash/read_document.cpp
+  crash/session.cpp
+  crash/write_document.cpp
+  ui/data_recovery_view.cpp)
 
 set(file_formats
   file/ase_format.cpp
@@ -95,7 +92,6 @@ add_library(app-lib
   app_menus.cpp
   app_options.cpp
   app_render.cpp
-  check_update.cpp
   cmd.cpp
   cmd/add_cel.cpp
   cmd/add_frame.cpp
@@ -230,6 +226,7 @@ add_library(app-lib
   commands/cmd_onionskin.cpp
   commands/cmd_open_file.cpp
   commands/cmd_open_in_folder.cpp
+  commands/cmd_open_scripts_folder.cpp
   commands/cmd_open_with_app.cpp
   commands/cmd_options.cpp
   commands/cmd_palette_editor.cpp
@@ -247,6 +244,7 @@ add_library(app-lib
   commands/cmd_reverse_frames.cpp
   commands/cmd_rotate.cpp
   commands/cmd_run_script.cpp
+  commands/cmd_rescan_scripts.cpp
   commands/cmd_save_file.cpp
   commands/cmd_save_mask.cpp
   commands/cmd_save_palette.cpp
@@ -319,10 +317,11 @@ add_library(app-lib
   pref/preferences.cpp
   project.cpp
   recent_files.cpp
-  res/http_loader.cpp
+  recent_files_menu.cpp
   res/palettes_loader_delegate.cpp
   res/resources_loader.cpp
   resource_finder.cpp
+  script/script_menu.cpp
   script/app_object.cpp
   script/app_scripting.cpp
   script/console_object.cpp
@@ -342,7 +341,7 @@ add_library(app-lib
   tools/pick_ink.cpp
   tools/point_shape.cpp
   tools/stroke.cpp
-  tools/symmetries.cpp
+  tools/symmetry.cpp
   tools/tool_box.cpp
   tools/tool_loop_manager.cpp
   transaction.cpp
@@ -396,15 +395,13 @@ add_library(app-lib
   ui/keyboard_shortcuts.cpp
   ui/main_menu_bar.cpp
   ui/main_window.cpp
-  ui/news_listbox.cpp
   ui/notifications.cpp
   ui/palette_popup.cpp
   ui/palette_view.cpp
-  ui/palettes_listbox.cpp
+  ui/palette_listbox.cpp
   ui/popup_window_pin.cpp
   ui/preview_editor.cpp
   ui/recent_listbox.cpp
-  ui/resources_listbox.cpp
   ui/search_entry.cpp
   ui/select_accelerator.cpp
   ui/skin/button_icon_impl.cpp
@@ -437,7 +434,6 @@ add_library(app-lib
   util/new_image_from_mask.cpp
   util/pic_file.cpp
   util/range_utils.cpp
-  webserver.cpp
   widget_loader.cpp
   xml_document.cpp
   xml_exception.cpp
@@ -454,7 +450,6 @@ target_link_libraries(app-lib
   fixmath-lib
   flic-lib
   gfx-lib
-  net-lib
   render-lib
   script-lib
   she
@@ -467,16 +462,3 @@ target_link_libraries(app-lib
   ${WEBP_LIBRARIES}
   ${ZLIB_LIBRARIES}
   ${FREETYPE_LIBRARIES})
-
-if(ENABLE_UPDATER)
-  target_link_libraries(app-lib updater-lib)
-endif()
-
-if(ENABLE_WEBSERVER)
-  target_link_libraries(app-lib webserver-lib)
-endif()
-
-if(ENABLE_STEAM)
-  add_definitions(-DENABLE_STEAM)
-  target_link_libraries(app-lib steam-lib)
-endif()

@@ -1,5 +1,5 @@
-// Aseprite
-// Copyright (C) 2001-2016  David Capello
+// Aseprite    | Copyright (C) 2001-2016  David Capello
+// LibreSprite | Copyright (C) 2021       LibreSprite contributors
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
@@ -165,9 +165,7 @@ class AseFormat : public FileFormat {
 
   bool onLoad(FileOp* fop) override;
   bool onPostLoad(FileOp* fop) override;
-#ifdef ENABLE_SAVE
   bool onSave(FileOp* fop) override;
-#endif
 };
 
 FileFormat* CreateAseFormat()
@@ -361,8 +359,6 @@ bool AseFormat::onPostLoad(FileOp* fop)
   return true;
 }
 
-#ifdef ENABLE_SAVE
-
 bool AseFormat::onSave(FileOp* fop)
 {
   const Sprite* sprite = fop->document()->sprite();
@@ -445,8 +441,6 @@ bool AseFormat::onSave(FileOp* fop)
     return true;
   }
 }
-
-#endif  // ENABLE_SAVE
 
 static bool ase_file_read_header(FILE* f, ASE_Header* header)
 {
